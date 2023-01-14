@@ -26,18 +26,23 @@ OBJBON	= ${SRCBON:.c=.o}
 
 #A partir de aqui, son los comandos para utilizar en el MAKEFILE, se usan de manera complementaria (Ejem: MAKEFILE all; MAKEFILE bonus; etc.)
 
-#El 
+#Este es el comando principal, realiza la conversión a objetos de las funciones obligatorias en la libreria
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
 	@echo Se han creado las librerias estandar ✓
+
+#Realiza el anterior, pero añadiendo el bonus en la libreria
 bonus: $(OBJBON) $(OBJ)
 	@$(AR) $(NAME) $(OBJBON) $(OBJ)
 	@echo Se han creado las librerias de BONUS ✓
+
+#Elimina todos los objetos creados
 clean:
 	@rm -rf *.o
 	@echo Se han eliminado los archivos .o ✓
+#Elimina todos los 
 fclean: clean
 	@rm -f $(NAME)
 	@echo Se han eliminado los archivos .a ✓
