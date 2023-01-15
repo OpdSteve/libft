@@ -6,7 +6,7 @@
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:23:37 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/02 13:04:07 by eleon-go         ###   ########.fr       */
+/*   Updated: 2023/01/15 20:53:53 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,15 @@ int		ft_toupper(int c);
 /*Este codigo convierte las mayusculas en minusculas, UP2u*/
 int		ft_tolower(int c);
 
-/*Esta funcion escribe 0 bytes en el espacio n, si n es 0, no hace nada utilizamos*/
+/*Esta funcion escribe 0 bytes en el espacio n, si n es 0, no hace nada 
+utilizamos*/
 void	ft_bzero(void *s, size_t n);
 
 /*copia el caracter c (un char sin signo) a los primeros n caracteres de str*/
 void	*ft_memset(void *b, int c, size_t len);
 
-/*Se utiliza para copiar una cantidad especificada de bytes de una ubicación de memoria a otra*/
+/*Se utiliza para copiar una cantidad especificada de bytes de una ubicación de 
+memoria a otra*/
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 void	*ft_memmove(void *dst, const void *src, size_t len);

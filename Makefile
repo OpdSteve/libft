@@ -42,16 +42,18 @@ bonus: $(OBJBON) $(OBJ)
 clean:
 	@rm -rf *.o
 	@echo Se han eliminado los archivos .o ✓
-#Elimina todos los 
+#Elimina todos los archivos creados con el make
 fclean: clean
 	@rm -f $(NAME)
 	@echo Se han eliminado los archivos .a ✓
 
+#indica la manera de generar los archivos
 %.o: %.c
 	@gcc $(CFLAGS) -I libft.h -o $@ -c $<
 
 re: fclean all
 
+#Indica que en el caso que alguna función, se llame igual a un comando; los ignore y elija ejecute el comando y no el archivo.
 .PHONY: all clean fclean re bonus
 
 #\
