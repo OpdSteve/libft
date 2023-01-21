@@ -42,6 +42,7 @@ bonus: $(OBJBON) $(OBJ)
 clean:
 	@rm -rf *.o
 	@echo Se han eliminado los archivos .o ✓
+
 #Elimina todos los archivos creados con el make
 fclean: clean
 	@rm -f $(NAME)
