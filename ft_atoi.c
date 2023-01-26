@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 23:13:35 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/26 19:22:16 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/26 19:11:37 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/26 19:13:18 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	size_t			i;
-	unsigned char	*point;
+	int	i;
+	int	res;
+	int	sign;
 
-	point = (unsigned char *)(s);
 	i = 0;
-	while (i < n)
+	res = 0;
+	sign = 1;
+	while (((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32) && nptr[i])
 	{
-		point[i] = 0;
 		i++;
 	}
+	if ('+' == nptr[i] || '-' == nptr[i])
+	{
+		if ('-' == nptr[i])
+			sign = -1;
+		i++;
+	}
+	while ('0' <= nptr[i] && '9' >= nptr[i])
+	{
+		res = res * 10 + ((nptr[i] - '0'));
+		i++;
+	}
+	return (sign * (res));
 }

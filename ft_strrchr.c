@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 23:13:35 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/26 19:22:16 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/26 17:55:13 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/26 17:56:23 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t			i;
-	unsigned char	*point;
+	int		leng_s;
+	char	*pts;
 
-	point = (unsigned char *)(s);
-	i = 0;
-	while (i < n)
+	leng_s = ft_strlen((const char *)(s));
+	pts = (char *)(s + leng_s);
+	while ((leng_s > 0) && *pts != (char)c)
 	{
-		point[i] = 0;
-		i++;
+		pts--;
+		leng_s--;
 	}
+	if (*pts == (char)c)
+		return (pts);
+	return (NULL);
 }

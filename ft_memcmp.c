@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 23:13:35 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/26 19:22:16 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/26 18:57:20 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/26 18:59:43 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
+	unsigned char	*pts1;
+	unsigned char	*pts2;
 	size_t			i;
-	unsigned char	*point;
 
-	point = (unsigned char *)(s);
 	i = 0;
-	while (i < n)
+	pts1 = (unsigned char *)s1;
+	pts2 = (unsigned char *)s2;
+	while (n--)
 	{
-		point[i] = 0;
+		if (pts1[i] != pts2[i])
+		{
+			return (pts1[i] - pts2[i]);
+		}
 		i++;
 	}
+	return (0);
 }

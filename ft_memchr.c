@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 23:13:35 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/26 19:22:16 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/26 18:46:41 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/26 18:49:11 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
+	unsigned char	*pts;
 	size_t			i;
-	unsigned char	*point;
+	unsigned char	c_char;
 
-	point = (unsigned char *)(s);
+	c_char = (unsigned char)c;
+	pts = (unsigned char *)s;
 	i = 0;
-	while (i < n)
+	while (n--)
 	{
-		point[i] = 0;
+		if (pts[i] == c_char)
+			return ((void *)s + i);
 		i++;
 	}
+	return (NULL);
 }
