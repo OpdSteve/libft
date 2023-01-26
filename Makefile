@@ -6,7 +6,7 @@
 #    By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 16:59:59 by eleon-go          #+#    #+#              #
-#    Updated: 2023/01/24 15:42:29 by eleon-go         ###   ########.fr        #
+#    Updated: 2023/01/26 17:48:25 by eleon-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ SRCS 			= 	ft_bzero.c \
 					ft_tolower.c \
 					ft_toupper.c \
 					ft_memmove.c \
+					ft_strlcpy.c \
+					ft_strlcat.c \
+					ft_strchr.c \
 
 OBJS			= $(SRCS:.c=.o)
 

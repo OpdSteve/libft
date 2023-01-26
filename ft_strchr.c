@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 20:50:23 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/26 16:29:16 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/26 17:46:49 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/26 17:48:40 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+char	*ft_strchr(const char *s, int c)
 {
-	int	n;
+	char	*pts;
 
-	n = 0;
-	if (!str)
-		return (n);
-	while (str[n])
-		n++;
-	return (n);
+	pts = (char *)(s);
+	while (*pts)
+	{
+		if (*pts == (char)c)
+			return (pts);
+		pts++;
+	}
+	if (!(char)c)
+		return (pts);
+	return (NULL);
 }

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 20:50:23 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/26 16:29:16 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/26 17:39:44 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/26 17:45:07 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+char	*ft_strcat(char *dest, const char *src)
 {
-	int	n;
+	size_t	len_dest;
+	size_t	i;
 
-	n = 0;
-	if (!str)
-		return (n);
-	while (str[n])
-		n++;
-	return (n);
+	len_dest = ft_strlen(dest);
+	i = 0;
+	while (src[i])
+	{
+		dest[len_dest + i] = src[i];
+		i++;
+	}
+	dest[len_dest + i] = '\0';
+	return (dest);
 }

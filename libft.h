@@ -6,7 +6,7 @@
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:23:37 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/15 20:53:53 by eleon-go         ###   ########.fr       */
+/*   Updated: 2023/01/26 17:48:03 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 
 /* Esta función cuenta los caracteres del imput y devuelve la longitud*/
-size_t	ft_strlen(const char *s);
+int		ft_strlen(const char *str);
 
 /*Este codigo convierte las minusculas en mayuscula, todo un lujo...*/
 int		ft_toupper(int c);
@@ -68,13 +68,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
-size_t	ft_strlcpy(char *dst,
-			const char *src,
-			size_t dstsize);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
-size_t	ft_strlcat(char *dst,
-			const char *src,
-			size_t dstsize);
+char	*ft_strcat(char *dest, const char *src);
 
 char	*ft_strchr(const char *s, int c);
 
