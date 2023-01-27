@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 19:15:41 by eleon-go          #+#    #+#             */
-/*   Updated: 2023/01/27 19:34:19 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/26 17:39:44 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/27 21:15:06 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strcat(char *dest, const char *src)
 {
-	void	*dest;
+	size_t	len_dest;
+	size_t	i;
 
-	dest = malloc(nmemb * size);
-	if (!dest)
-		return (NULL);
-	ft_bzero(dest, nmemb * size);
+	len_dest = ft_strlen(dest);
+	i = 0;
+	while (src[i])
+	{
+		dest[len_dest + i] = src[i];
+		i++;
+	}
+	dest[len_dest + i] = '\0';
 	return (dest);
 }

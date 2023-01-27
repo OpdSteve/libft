@@ -1,24 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 19:15:41 by eleon-go          #+#    #+#             */
-/*   Updated: 2023/01/27 19:34:19 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/27 20:46:14 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/27 20:47:15 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	void	*dest;
+	char	*dst;
+	int		i;
+	size_t	len_s;
 
-	dest = malloc(nmemb * size);
-	if (!dest)
+	if (!s)
 		return (NULL);
-	ft_bzero(dest, nmemb * size);
-	return (dest);
+	len_s = ft_strlen((const char *)s);
+	if (len > len_s)
+		len = len_s;
+	if (start >= len_s)
+		return ((char *)ft_calloc(sizeof(char), 1));
+	i = 0;
+	dst = (char *)malloc((len + 1) * sizeof(char));
+	if (!dst)
+		return (NULL);
+	while (len-- && s[i + (int)start])
+	{
+		dst[i] = s[i + start];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }
