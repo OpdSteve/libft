@@ -6,7 +6,7 @@
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:23:37 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/27 21:15:27 by eleon-go         ###   ########.fr       */
+/*   Updated: 2023/01/28 13:25:20 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 
 /* Esta función cuenta los caracteres del imput y devuelve la longitud*/
-int		ft_strlen(const char *str);
+size_t	ft_strlen(const char *s);
 
 /*Este codigo convierte las minusculas en mayuscula, todo un lujo...*/
 int		ft_toupper(int c);
@@ -73,7 +73,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 /*A*/
-char	*ft_strcat(char *dest, const char *src);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 /*A*/
 char	*ft_strchr(const char *s, int c);
@@ -105,7 +105,7 @@ char	*ft_strdup(const char *s);
 /* -V-							SEGUNDA PARTE 							-V- */
 
 /*A*/
-char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 /*A*/
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -164,7 +164,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
 /*A*/
-t_list	*ft_lstmap(t_list *lst,
-			void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

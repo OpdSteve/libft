@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/26 17:39:44 by eleon-go          #+#    #+#             */
-/*   Updated: 2023/01/27 21:15:06 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/28 13:23:23 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/28 13:24:06 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, const char *src)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	len_dest;
-	size_t	i;
-
-	len_dest = ft_strlen(dest);
-	i = 0;
-	while (src[i])
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		dest[len_dest + i] = src[i];
-		i++;
+		(*f)(lst->content);
+		lst = lst->next;
 	}
-	dest[len_dest + i] = '\0';
-	return (dest);
 }

@@ -6,7 +6,7 @@
 #    By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 16:59:59 by eleon-go          #+#    #+#              #
-#    Updated: 2023/01/27 21:11:19 by eleon-go         ###   ########.fr        #
+#    Updated: 2023/01/28 13:25:46 by eleon-go         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,13 +34,16 @@ SRCS 			= 	ft_bzero.c \
 					ft_strdup.c \
 					ft_calloc.c \
 					ft_putchar_fd.c \
-					t_putstr_fd.c \
+					ft_putstr_fd.c \
 					ft_putendl_fd.c \
 					ft_putnbr_fd.c \
 					ft_striteri.c \
 					ft_strmapi.c \
 					ft_substr.c \
 					ft_strjoin.c \
+					ft_strtrim.c \
+					ft_itoa.c \
+					ft_split.c \
 
 OBJS			= $(SRCS:.c=.o)
 
@@ -75,7 +78,7 @@ fclean:			clean
 
 re:				fclean all
 
-#bonus:			$(OBJS) $(BONUS_OBJS)
-#				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-#
+bonus:			$(OBJS) $(BONUS_OBJS)
+				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
 .PHONY:			all clean fclean re bonus

@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 20:48:28 by eleon-go          #+#    #+#             */
-/*   Updated: 2023/01/28 12:11:47 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/28 12:52:27 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/28 12:53:40 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstnew(void *content)
 {
-	char	*ret;
-	size_t	i;
-	size_t	x;
+	t_list	*new;
 
-	ret = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
-	if (!ret)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (!new)
 		return (NULL);
-	i = 0;
-	x = 0;
-	while (x < ft_strlen(s1))
-		ret[i++] = s1[x++];
-	x = 0;
-	while (x < ft_strlen(s2))
-		ret[i++] = s2[x++];
-	return (ret);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 20:48:28 by eleon-go          #+#    #+#             */
-/*   Updated: 2023/01/28 12:11:47 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/28 12:20:53 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/28 12:23:10 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ret;
-	size_t	i;
-	size_t	x;
+	char	*dest;
+	size_t	len_s;
 
-	ret = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
-	if (!ret)
+	if (!s1 || !set)
 		return (NULL);
-	i = 0;
-	x = 0;
-	while (x < ft_strlen(s1))
-		ret[i++] = s1[x++];
-	x = 0;
-	while (x < ft_strlen(s2))
-		ret[i++] = s2[x++];
-	return (ret);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	len_s = ft_strlen((const char *)s1);
+	while (ft_strchr(set, *(s1 + len_s - 1)) && len_s > 0)
+		len_s--;
+	dest = ft_substr(s1, 0, len_s);
+	return (dest);
 }

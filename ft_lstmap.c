@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 20:48:28 by eleon-go          #+#    #+#             */
-/*   Updated: 2023/01/28 12:11:47 by eleon-go         ###   ########.fr       */
+/*   Created: 2023/01/28 13:24:40 by eleon-go          #+#    #+#             */
+/*   Updated: 2023/01/28 13:25:06 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*ret;
-	size_t	i;
-	size_t	x;
+	t_list	*new_lst;
+	t_list	*new_node;
+	t_list	*orig;
 
-	ret = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
-	if (!ret)
-		return (NULL);
-	i = 0;
-	x = 0;
-	while (x < ft_strlen(s1))
-		ret[i++] = s1[x++];
-	x = 0;
-	while (x < ft_strlen(s2))
-		ret[i++] = s2[x++];
-	return (ret);
+	new_lst = NULL;
+	orig = lst;
+	while (orig)
+	{
+		new_node = ft_lstnew(f(orig->content));
+		if (!new_node)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		else
+			ft_lstadd_back(&new_lst, new_node);
+		orig = orig->next;
+	}
+	return (new_lst);
 }

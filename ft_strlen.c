@@ -6,20 +6,18 @@
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 20:50:23 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/26 16:29:16 by eleon-go         ###   ########.fr       */
+/*   Updated: 2023/01/28 12:17:54 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int	n;
+	size_t	i;
 
-	n = 0;
-	if (!str)
-		return (n);
-	while (str[n])
-		n++;
-	return (n);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
