@@ -6,7 +6,7 @@
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 13:24:40 by eleon-go          #+#    #+#             */
-/*   Updated: 2023/01/28 13:25:06 by eleon-go         ###   ########.fr       */
+/*   Updated: 2023/01/28 13:40:33 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,22 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_lst;
-	t_list	*new_node;
-	t_list	*orig;
+	t_list	*new;
+	t_list	*aux;
 
-	new_lst = NULL;
-	orig = lst;
-	while (orig)
+	if (!lst)
+		return (NULL);
+	new = NULL;
+	while (lst)
 	{
-		new_node = ft_lstnew(f(orig->content));
-		if (!new_node)
+		aux = ft_lstnew(f(lst->content));
+		if (aux == NULL)
 		{
-			ft_lstclear(&new_lst, del);
+			ft_lstclear(&new, del);
 			return (NULL);
 		}
-		else
-			ft_lstadd_back(&new_lst, new_node);
-		orig = orig->next;
+		ft_lstadd_back(&new, aux);
+		lst = lst->next;
 	}
-	return (new_lst);
+	return (new);
 }
