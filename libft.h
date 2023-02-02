@@ -6,7 +6,7 @@
 /*   By: eleon-go <eleon-go@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:23:37 by eleon-go@st       #+#    #+#             */
-/*   Updated: 2023/01/28 13:37:47 by eleon-go         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:14:12 by eleon-go         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,28 +66,29 @@ void	*ft_memset(void *b, int c, size_t len);
 memoria a otra*/
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 
-/*A*/
+/*se usa para mover un bloque de memoria de una ubicación a otra sin interferir 
+con los datos que contiene*/
 void	*ft_memmove(void *dst, const void *src, size_t len);
 
-/*A*/
+/*se usa para copiar una cadena de caracteres de una ubicación a otra*/
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
-/*A*/
+/*Se usa para concatenar una cadena de caracteres a otra*/
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 
-/*A*/
+/*Devuelve un puntero a la primera ubicacion del string*/
 char	*ft_strchr(const char *s, int c);
 
-/*A*/
+/*Devuelve un puntero a la ultima ubicacion del string*/
 char	*ft_strrchr(const char *s, int c);
 
-/*A*/
+/*Compara dos cadenas de string*/
 int		ft_strncmp(const char *s1, const char *s2, size_t size);
 
-/*A*/
+/*Compara los Bytes de memoria de dos valores de memoria*/
 void	*ft_memchr(const void *s, int c, size_t n);
 
-/*A*/
+/*Compara los Bytes de memoria de dos strings*/
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /*A*/
